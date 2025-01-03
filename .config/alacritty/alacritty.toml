@@ -1,0 +1,17 @@
+[general]
+live_config_reload = true
+
+[font]
+size = 14
+normal = { family = "JetBrains Mono" }
+
+[window]
+decorations = "Buttonless"
+dynamic_padding = true
+padding = { x = 6, y = 6 }
+opacity = 0.5
+blur = true
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+

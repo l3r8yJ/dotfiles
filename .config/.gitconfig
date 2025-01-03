@@ -1,0 +1,26 @@
+[http]
+  sslVerify = false
+
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICy8yCmKSvzs4pevK/qV9dh7OkTVqkW4BwXDyv3hUGOE
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+
+[core]
+  autocrlf = input
+
+[includeIf "gitdir:/Users/ivanivancuk/code/oss/"]
+  path = /Users/ivanivancuk/code/oss/.gitconfig
+
+[includeIf "gitdir:/Users/ivanivancuk/code/ecom/"]
+  path = /Users/ivanivancuk/code/ecom/.gitconfig
+
+[push]
+  autoSetupRemote = true
