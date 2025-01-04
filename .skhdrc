@@ -1,0 +1,59 @@
+# Applications
+
+alt - t : open -a 'Alacritty'
+alt - i : open -a 'IntelliJ IDEA'
+alt - g : open -a 'Telegram'
+alt - b : open -a 'Arc'
+alt - c : open -a 'Calendar'
+alt - m : open -a 'Mail'
+alt - s : open -a 'Sublime Text'
+
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+shift + alt - d : yabai -m space --create && \
+                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+                   yabai -m window --space "${index}" && \
+                   yabai -m space --focus "${index}"
+
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+
+# Window management
+
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# move managed window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --focus south
+shift + cmd - k : yabai -m window --focus north
+shift + cmd - l : yabai -m window --warp east
+
+alt - f : yabai -m window --toggle zoom-fullscreen
+alt - e : yabai -m window --toggle split
+
+# move floating window
+shift + ctrl - a : yabai -m window --move rel:-20:0
+shift + ctrl - s : yabai -m window --move rel:0:20
+
+ctrl + cmd - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# balance size of windows
+shift + alt - 0 : yabai -m space --balance
+
+# resize the focused window
+
+ctrl + alt - h : yabai -m window --resize west:-20
+ctrl + alt - l : yabai -m window --resize east:20
+ctrl + alt - k : yabai -m window --resize north:-20
+ctrl + alt - j : yabai -m window --resize south:20
+
+# restart
+ctrl + alt + cmd - r : yabai --restart-service
